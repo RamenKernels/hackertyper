@@ -1,50 +1,50 @@
 import random
-import curses
-from curses import wrapper
+import keyboard
+import time
+import sys
+from colorama import Fore
 
 with open("terminal.txt", "r") as f:
   terminal = f.read()
 
-def random_terminal():
-  print(random.choice(get_terminal_blocks()))
+with open("code.txt", "r") as s:
+  code = s.read()
 
-  
 def get_terminal_blocks():
-  blocks = []
-  start_of_block = -1
-  target_start = "<"
-  target_end = ">"
-
-  for i, char in enumerate(terminal):
-    if char == target_start:
-      start_of_block = i
-    
-    if char == target_end and start_of_block != -1:
-      block = terminal[start_of_block: i + 1]
-      blocks.add(block)
-      start_of_block = -1
+  blocks = terminal.split("\n")
   
   return blocks
-  
 
-def main(stdscr):
-  curses.use_default_colors()
-  curses.init_pair(1, curses.COLOR_GREEN, -1)
-
-  stdscr.clear()
-  stdscr.refresh()
+def run_terminal():
+  line_num = 0
+  start_time = time.time()
 
   while True:
-    key = stdscr.getkey()
-
     try:
-      if ord(key) == 27:
-        break
-      elif ord(key) == 10:
-        print(get_terminal_blocks())
-      else:
-        stdscr.addstr("Blah")
+      line = get_terminal_blocks()[line_num]
+      print(Fore.GREEN + f"{line}")
     except:
-      pass
+      print("\n")
+    line_num += 1
+    if line_num > 22:
+      line_num = 0
+    end_time = time.time()
+    if end_time - start_time >= 10:
+      break
 
-wrapper(main)
+    time.sleep(random.uniform(0.001, 0.6))
+
+def main():
+  i = 0
+  while True:
+    if keyboard.is_pressed("escape"):
+      break
+    elif keyboard.is_pressed("enter"):
+      run_terminal()
+    elif keyboard.read_hotkey():
+      sys.stdout.write(Fore.GREEN + code[i])
+      i += 1
+      if i >= len(code):
+        i = 0
+
+main()

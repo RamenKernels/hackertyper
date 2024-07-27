@@ -186,6 +186,7 @@ int main() {
     for (const std::string &alias : hackerAliases) {
         std::cout << "Hacker alias: " << alias << std::endl;
     }
+    
 
     return 0;
 }
