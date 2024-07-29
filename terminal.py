@@ -17,14 +17,11 @@ def run_terminal():
 
   while True:
     try:
-      line = get_terminal_blocks()[line_num]
+      line = random.choice(get_terminal_blocks())
       dt_string = datetime.now().strftime("%m/%d/%y %H:%M:%S")
       print(Fore.GREEN + f"{dt_string}{line}")
     except:
-      print("\n")
-    line_num += 1
-    if line_num > 22:
-      line_num = 0
+      pass
     end_time = time.time()
     if end_time - start_time >= 10:
       break
