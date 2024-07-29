@@ -1,6 +1,6 @@
 import random
 import time
-import sys
+import getch
 from datetime import datetime
 from colorama import Fore
 
@@ -18,6 +18,10 @@ def run_terminal():
     start_time = time.time()
 
     while True:
+        key = getch.getch()
+        if key == "\u001b":
+            return
+        
         try:
             line = random.choice(get_terminal_blocks())
             dt_string = datetime.now().strftime("%m/%d/%y %H:%M:%S")
@@ -32,7 +36,6 @@ def run_terminal():
 
 
 def main():
-    input("\nPress enter to run")
     time.sleep(1)
     run_terminal()
     print("\nActivation Complete!")

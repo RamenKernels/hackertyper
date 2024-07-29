@@ -23,13 +23,13 @@ def get_speed() -> int:
 def initialize() -> None:
     print(Fore.GREEN)
     time.sleep(0.5)
-    print("Initializing.")
+    print("Initializing.", end="", flush=True)
     time.sleep(0.5)
-    print("Initializing..")
+    print(".", end="", flush=True)
     time.sleep(0.5)
-    print("Initializing...")
+    print(".", end="", flush=True)
     time.sleep(0.5)
-    print("Initialization Complete!\n")
+    print("\nInitialization Complete!\n")
 
 
 def writecode(type_speed) -> None:
@@ -38,12 +38,16 @@ def writecode(type_speed) -> None:
         key = getch.getch()
         if key == "\n":
             terminal.main()
+            return
         elif key == "\u001b":
             return
         else:
 
             for j in range(0, type_speed):
-                print(code[i + j], end="", flush=True)
+                try:
+                    print(code[i + j], end="", flush=True)
+                except IndexError:
+                    break
 
         i += type_speed
         if i > 6934:
