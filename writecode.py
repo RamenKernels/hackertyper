@@ -4,13 +4,27 @@ import time
 from colorama import Fore
 import terminal
 
-speed: int = 2
-
 with open("code.txt", "r") as f:
     code = f.read()
 
+def get_speed() -> int:
+    while True:
+            usr_input = input("Choose a typing speed >> ")
+            try:
+                if int(usr_input) < 1:
+                    print("Value must be a positive integer!")
+                else:
+                    return int(usr_input)
+            except:
+                print("Value must be a positive integer!")
+
 def initialize() -> None:
     print(Fore.GREEN)
+
+    
+        
+
+    time.sleep(0.5)
     print("Initializing.")
     time.sleep(0.5)
     print("Initializing..")
@@ -19,7 +33,7 @@ def initialize() -> None:
     time.sleep(0.5)
     print("Initialization Complete!\n")
 
-def writecode() -> None:
+def writecode(type_speed) -> None:
     i = 0
     while True:
         key = getch.getch()
@@ -28,15 +42,18 @@ def writecode() -> None:
         elif key == "\u001b":
             return
         else:
-            for i in range(i+speed):
-                print(code[i], end="", flush=True)
-        i += 1
+
+            for j in range(0, type_speed):
+                print(code[i + j], end="", flush=True)
+
+        i += type_speed
         if i > 6934:
             i = 0
+    
 
 def main():
     initialize()
-    writecode()
+    writecode(get_speed())
 
     print(Fore.RESET, end="\n", flush=False)
 
