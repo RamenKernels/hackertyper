@@ -1,9 +1,8 @@
 import random
 import time
-import getch
 from datetime import datetime
 from colorama import Fore
-
+"""
 with open("terminal.txt", "r") as f:
     terminal = f.read()
 
@@ -43,3 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""

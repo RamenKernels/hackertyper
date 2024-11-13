@@ -1,65 +1,49 @@
 import random
-import getch
+import curses
 import time
 from colorama import Fore
 import terminal
 
+speed = 5
+
 with open("code.txt", "r") as f:
     code = f.read()
 
+with open("terminal.txt", "r") as g:
+    terminal_lines = g.readlines()
 
-def get_speed() -> int:
+
+def main(stdscr):
+    stdscr.clear()
+
+    curses.cbreak()
+    stdscr.keypad(True)
+    stdscr.scrollok(True)
+
+    curses.start_color()
+
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
+
     while True:
-        usr_input = input("Choose a typing speed >> ")
-        try:
-            if int(usr_input) < 1:
-                print("Value must be a positive integer!")
-            else:
-                return int(usr_input)
-        except:
-            print("Value must be a positive integer!")
+        for i in range(0, len(code)):
+            if i % speed == 0:
+                key = stdscr.getch()
+                if key == 263: 
+                    stdscr.clear()
+                    stdscr.addstr(0, 0, "Quitting the program...", curses.color_pair(1))
+                    return 
+                elif key == 10:
+                    stdscr.clear()
+                    while True:
+                        for line in terminal_lines:
+                            stdscr.addstr(line, curses.color_pair(1))
+                            stdscr.refresh()
+                            time.sleep(random.random() / 2)
 
-
-def initialize() -> None:
-    print(Fore.GREEN)
-    time.sleep(0.5)
-    print("Initializing.", end="", flush=True)
-    time.sleep(0.5)
-    print(".", end="", flush=True)
-    time.sleep(0.5)
-    print(".", end="", flush=True)
-    time.sleep(0.5)
-    print("\nInitialization Complete!\n")
-
-
-def writecode(type_speed) -> None:
-    i = 0
-    while True:
-        key = getch.getch()
-        if key == "\n":
-            terminal.main()
-            return
-        elif key == "\u001b":
-            return
-        else:
-
-            for j in range(0, type_speed):
-                try:
-                    print(code[i + j], end="", flush=True)
-                except IndexError:
-                    break
-
-        i += type_speed
-        if i > 6934:
-            i = 0
-
-
-def main():
-    initialize()
-    writecode(get_speed())
-
-    print(Fore.RESET, end="\n", flush=False)
+            stdscr.addstr(code[i], curses.color_pair(1))
+            stdscr.refresh()
 
 
 if __name__ == "__main__":
-    main()
+    curses.wrapper(main)
+
