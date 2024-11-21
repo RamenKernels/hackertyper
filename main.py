@@ -40,7 +40,7 @@ def main(stdscr):
     while True:
         for i in range(0, len(code)):
             if i % speed == 0:
-                get_input()
+                get_input(stdscr)
 
             stdscr.addstr(code[i], curses.color_pair(1))
             stdscr.refresh()
