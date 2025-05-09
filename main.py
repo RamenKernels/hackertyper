@@ -16,6 +16,9 @@ def run_terminal(stdscr):
             stdscr.refresh()
             time.sleep(random.random() / 20)
 
+def get_speed(frames_elapsed):
+    return 50 - frames_elapsed
+
 def main(stdscr):
     speed_mult = 5
     current_index = 0
@@ -40,15 +43,20 @@ def main(stdscr):
         elif key == 10:
             stdscr.clear()
             run_terminal()
+        elif key == 8:
+            y, x = stdscr.getyx()
+            if x > 0:
+                stdscr.move(y, x - 1)
+                stdscr.delch()
         elif key != -1:
             char = chr(key) if 0 <= key <= 255 else None
 
             if frame_count > 50:
                 stdscr.addstr(char, curses.color_pair(1))
             else:
-                stdscr.addstr(code[current_index], curses.color_pair(1))
-
-            current_index += 1
+                for i in enumerate(range(get_speed(frame_count))):
+                    stdscr.addstr(code[current_index], curses.color_pair(1))
+                    current_index += 1
             frame_count = 0
 
         frame_count += 1
