@@ -42,8 +42,8 @@ def main(stdscr):
             return
         elif key == 10:
             stdscr.clear()
-            run_terminal()
-        elif key == 8:
+            run_terminal(stdscr)
+        elif key == 127:
             y, x = stdscr.getyx()
             if x > 0:
                 stdscr.move(y, x - 1)
