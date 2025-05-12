@@ -1,13 +1,13 @@
 import random
 import curses
 import time
-from colorama import Fore
 
 with open("code.txt", "r") as f:
     code = f.read()
 
 with open("terminal.txt", "r") as g:
     terminal_lines = g.readlines()
+
 
 def run_terminal(stdscr):
     while True:
@@ -16,8 +16,10 @@ def run_terminal(stdscr):
             stdscr.refresh()
             time.sleep(random.random() / 20)
 
+
 def get_speed(frames_elapsed):
     return 50 - frames_elapsed
+
 
 def main(stdscr):
     speed_mult = 5
@@ -43,7 +45,7 @@ def main(stdscr):
         elif key == 10:
             stdscr.clear()
             run_terminal(stdscr)
-        elif key == 127:
+        elif key in [curses.KEY_BACKSPACE, 127, 8]:
             y, x = stdscr.getyx()
             if x > 0:
                 stdscr.move(y, x - 1)
@@ -54,9 +56,13 @@ def main(stdscr):
             if frame_count > 50:
                 stdscr.addstr(char, curses.color_pair(1))
             else:
-                for i in enumerate(range(get_speed(frame_count))):
+                for _ in enumerate(range(get_speed(frame_count))):
                     stdscr.addstr(code[current_index], curses.color_pair(1))
                     current_index += 1
+
+                    if current_index >= len(code):
+                        current_index = 0
+                        stdscr.addstr("\n")
             frame_count = 0
 
         frame_count += 1
@@ -65,4 +71,3 @@ def main(stdscr):
 
 if __name__ == "__main__":
     curses.wrapper(main)
-
